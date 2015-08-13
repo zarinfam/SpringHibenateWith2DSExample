@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Stock business object -->
+   <bean id="stockBo" class="com.mkyong.stock.bo.impl.StockBoImpl" >
+   		<property name="stockDao" ref="stockDao" />
+   		<property name="stock2Dao" ref="stock2Dao" />
+   </bean>
+
+   <!-- Stock Data Access Object -->
+   <bean id="stockDao" class="com.mkyong.stock.dao.impl.StockDaoImpl" >
+   		<property name="sessionFactory" ref="sessionFactory"></property>
+   </bean>
+
+   <!-- Stock Data Access Object -->
+   <bean id="stock2Dao" class="com.mkyong.stock.dao.impl.Stock2DaoImpl" >
+      <property name="sessionFactory" ref="session2Factory"></property>
+   </bean>
+</beans>
